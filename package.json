@@ -18,7 +18,7 @@
   "author": "zhangbowei",
   "license": "ISC",
   "bin": {
-    "updateallconf": "./bin/updateSF.js"
+    "updatesf": "./bin/updateSF.js"
   },
   "description": ""
 }
