@@ -10,7 +10,6 @@
             "name": "Launch Program",
             "program": "${workspaceRoot}/src/index.js",
             "args": [
-                "--path=/Users/ZhangBowei/.zsh/data"
             ]
         },
         {
