@@ -50,7 +50,7 @@ function getWritePage() {
         pack.setQuery({ '_': token });
         pack.setConf({
             do: 'saveArticle',
-            type: 'article',
+            type: 1,
             title: '',
             text: '',
             weibo: 0,
@@ -105,12 +105,10 @@ function pushFile() {
     pack.setAddress(argv.fileCard ? pack.getPathEditFile() : pack.getPathNewFile());
     pack.changeConf({
         do: '',   //发布文章必须置空
-        type: '',  //发布文章必须置空
         title: argv.fileTitle,
         text: encodeURIComponent(record.getFile()),
         id: argv.fileCard,
-        license: 1,
-        created: ''
+        license: 0
     });
     pack.setConf(Object.keys(pack.getConf())
         .map(k => `${k}=${pack.getConf()[k]}`)

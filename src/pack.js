@@ -34,6 +34,7 @@ const url = (function () {
         login: `${origin}/api/user/login`,
         write: `${origin}/write?freshman=1`,
         draft: `${origin}/api/article/draft/save`,
+        edit: `${origin}/a/${argv.fileCard}/edit`,
         tag: `${origin}/api/tags/search`,
         newFile: `${origin}/api/articles/add`,
         editFile: `${origin}/api/article/${argv.fileCard}/edit`,
