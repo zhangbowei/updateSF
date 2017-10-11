@@ -17,13 +17,16 @@ function getPageCount() {
     }, { fulfill, reject });
 }
 
-function parsePageContent() {
+async function parsePageContent() {
     const fulfill = wrapper.getRes(arguments);
     const reject = wrapper.getRej(arguments);
 
     fulfill();
 
+    const sleep = () => new Promise((res) => setTimeout(() => res(), 100));
+
     for (let index = 1; index <= record.getCount(); ++index) {
+        await sleep();
         pack.setAddress([pack.getPathNote(), index].join(''));
         template.getRequest(function (data) {
             const rawStr = data.text;
