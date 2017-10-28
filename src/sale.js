@@ -14,7 +14,7 @@ function getMainPage() {
         const rawPack = data;
         const rawStr = rawPack.text;
         const $ = cheerio.load(rawStr);
-        const text = $('body>script').eq(2).text();
+        const text = $('body script').eq(4).text();
         const fn = new Function('window', text + ';return window.SF.token');
         const token = fn({});
 
@@ -43,7 +43,7 @@ function getWritePage() {
         const rawPack = data;
         const rawStr = rawPack.text;
         const $ = cheerio.load(rawStr);
-        const text = $('body>script').eq(2).text();
+        const text = $('body script').eq(12).text();
         const fn = new Function('window', text + ';return window.SF.token');
         const token = fn({});
 
