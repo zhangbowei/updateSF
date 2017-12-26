@@ -33,8 +33,8 @@ async function parsePageContent() {
             let res = [];
 
             rawStr.replace(/<a class="profile-mine__content--title" href="(.*?)">(.*?)</gi, function (all, itemA, itemB) {
-                // res.push(["---", ["[", itemB, "]", "(https://segmentfault.com", itemA, ") "].join('')].join('\n'));
-                res.push(["", ["[", itemB, "]", "(https://segmentfault.com", itemA, ") "].join('')].join('\n'));
+                res.push(["---", ["[", itemB, "]", "(https://segmentfault.com", itemA, ") "].join('')].join('\n'));
+                // res.push(["", ["[", itemB, "]", "(https://segmentfault.com", itemA, ") "].join('')].join('\n'));
             });
             record.addNote(index, res);
         });

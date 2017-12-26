@@ -14,7 +14,7 @@ function getMainPage() {
         const rawPack = data;
         const rawStr = rawPack.text;
         const $ = cheerio.load(rawStr);
-        const text = $('body script').eq(4).text();
+        const text = $('body script').eq(5).text();
         const fn = new Function('window', text + ';return window.SF.token');
         const token = fn({});
 
@@ -43,8 +43,10 @@ function getWritePage() {
         const rawPack = data;
         const rawStr = rawPack.text;
         const $ = cheerio.load(rawStr);
-        const text = $('body script').eq(12).text();
-        const fn = new Function('window', text + ';return window.SF.token');
+        // const text = $('body script').eq(14).text();
+        const text = rawStr;
+        const t = text.match(/<script>[\s\S]*?(\(function \(w\) \{[\s\S]*?w\.SF\.token[\s\S]*?)<\/script>/i)[1];
+        const fn = new Function('window', t + 'return window.SF.token');
         const token = fn({});
 
         pack.setQuery({ '_': token });
