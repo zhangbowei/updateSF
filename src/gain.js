@@ -11,7 +11,7 @@ function getPageCount() {
     pack.setAddress([pack.getPathNote(), 999999].join(''));
     template.getRequest(function (data) {
         const rawStr = data.text;
-        const res = rawStr.match(/(\d+)<\/a><\/li><\/ul><\/div><\/div><\/div><\/div><\/div>/);
+        const res = rawStr.match(/(\d+)<\/a><\/li><\/ul><\/div><\/div>/);
 
         record.setCount(res ? +res[1] : 0);
     }, { fulfill, reject });

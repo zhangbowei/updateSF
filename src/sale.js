@@ -13,8 +13,9 @@ function getMainPage() {
     template.getRequest(function (data) {
         const rawPack = data;
         const rawStr = rawPack.text;
-        const $ = cheerio.load(rawStr);
-        const text = $('body script').eq(5).text();
+        // const $ = cheerio.load(rawStr);
+        // const text = $('body script').eq(5).text();
+        const text = rawStr.match(/<script>[\s\S]*?(\(function \(w\) \{[\s\S]*?w\.SF\.token[\s\S]*?)<\/script>/i)[1];
         const fn = new Function('window', text + ';return window.SF.token');
         const token = fn({});
 
